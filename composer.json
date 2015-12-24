@@ -1,0 +1,7 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "doctrine/orm": "*",
+        "slim/http-cache": "^0.3.0"
+    }
+}
