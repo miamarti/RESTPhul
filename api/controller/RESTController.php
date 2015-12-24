@@ -25,8 +25,8 @@ class RESTController{
           $annotations = $reader->getMethodAnnotations($reflectionMethod);
 
           if(!empty($annotations[0])){
-            $contentType = $annotations[0]->contentType;
-            $this->map([$annotations[0]->map], $annotations[0]->uri, function ($request, $response, $args) use ($class, $reflectionMethod, $contentType) {
+            $contentType = $annotations[0]->produces;
+            $this->map([$annotations[0]->method], $annotations[0]->value, function ($request, $response, $args) use ($class, $reflectionMethod, $contentType) {
               $newResponse = $response->withHeader('Content-type', $contentType);
               $reflectionMethod->invoke($class, $request, $newResponse);
               $resWithLastMod = $this->cache->withLastModified($newResponse, time() - 3600);

@@ -5,9 +5,9 @@ use Doctrine\Common\Annotations\Annotation;
 /**
 * @Annotation
 */
-final class RESTful extends Annotation
+final class RequestMapping extends Annotation
 {
-	public $uri;
-	public $map;
-  public $contentType;
+	public $value;
+	public $method;
+  public $produces;
 }

@@ -1,5 +1,5 @@
 <?php
-use Api\Annotations\RESTful;
+use Api\Annotations\RequestMapping;
 require 'src/business/UserBO.php';
 
 class FrontController extends RESTController{
@@ -10,9 +10,7 @@ class FrontController extends RESTController{
   }
 
   /**
-	 * @RESTful(uri="/hello/{name}",
-   * contentType="application/json",
-   * map="GET")
+	 * @RequestMapping(value="/hello/{name}", method="GET", produces="application/json")
 	 */
   public function hello($request, $response){
     $name = $request->getAttribute('name');
@@ -20,9 +18,7 @@ class FrontController extends RESTController{
   }
 
   /**
-	 * @RESTful(uri="/user/{id:[0-9]+}",
-   * contentType="application/json",
-   * map="GET")
+	 * @RequestMapping(value="/user/{id:[0-9]+}", method="GET", produces="application/json")
 	 */
   public function user($request, $response){
     $id = $request->getAttribute('id');
