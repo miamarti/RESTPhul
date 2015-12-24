@@ -1,8 +1,8 @@
 <?php
-use App\Annotations\RESTful;
-require 'MainController.php';
+use Api\Annotations\RESTful;
+require 'src/business/UserBO.php';
 
-class FrontController extends MainController{
+class FrontController extends RESTController{
   protected $app;
 
   public function __construct() {
@@ -16,7 +16,7 @@ class FrontController extends MainController{
 	 */
   public function hello($request, $response){
     $name = $request->getAttribute('name');
-    $response->write(json_encode(['name'=>$name]));
+    $response->write(json_encode(['hello'=>$name]));
   }
 
   /**
@@ -26,7 +26,8 @@ class FrontController extends MainController{
 	 */
   public function user($request, $response){
     $id = $request->getAttribute('id');
-    $response->write(json_encode(['id'=>$id]));
+    $user = UserBO::getUser($id);
+    $response->write($user->toJson());
   }
 }
 new FrontController();

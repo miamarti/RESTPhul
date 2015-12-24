@@ -1,5 +1,5 @@
 <?php
-namespace App\Annotations;
+namespace Api\Annotations;
 use Doctrine\Common\Annotations\Annotation;
 
 /**

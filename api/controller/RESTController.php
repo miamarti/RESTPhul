@@ -2,13 +2,13 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-class MainController{
+class RESTController{
   protected $app;
   protected $container;
 
   public function __construct() {
     $class = $this;
-    
+
     $this->container = new \Slim\Container;
     $this->container['cache'] = function () {
       return new \Slim\HttpCache\CacheProvider();
