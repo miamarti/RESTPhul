@@ -3,7 +3,6 @@ use Api\Annotations\RequestMapping;
 require 'src/business/UserBO.php';
 
 class FrontController extends RESTController{
-  protected $app;
 
   public function __construct() {
     parent::__construct();
